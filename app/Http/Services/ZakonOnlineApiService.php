@@ -21,9 +21,9 @@ class ZakonOnlineApiService
         // Prepare array for keywords with success_rate > 80
         $keywords_high_success_rate = [];
 
-        foreach ($keyword['keywords'] as $keyword) {
-            if ($keyword['success_rate'] >= 80) {
-                $keywords_high_success_rate[] = $keyword['keyword'];
+        foreach ($keyword['ks'] as $keyword) {
+            if ($keyword['rt'] >= 80) {
+                $keywords_high_success_rate[] = $keyword['k'];
             }
         }
 

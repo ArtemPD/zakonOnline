@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BotController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZakonOnlineApiController;
@@ -21,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('get-conclusion', [ZakonOnlineApiController::class, 'GetConclusion'])->name('get-conclusion');
 
+Route::post('/bot-response', [BotController::class, 'getResponse']);

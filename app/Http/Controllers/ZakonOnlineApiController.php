@@ -13,23 +13,23 @@ class ZakonOnlineApiController extends Controller
     {
     }
 
-    /**
-     * @param ConclusionRequest $request
-     * @return JsonResponse
-     */
-    public function GetConclusion(ConclusionRequest $request): JsonResponse
-    {
-        $document = $this->zakonOnlineApiService->getAppropriateDocument($request->validated());
-
-        if ($document->isEmpty()) {
-            $conclusion = '';
-        } else {
-            // get legal position
-            $legalPosition = $this->zakonOnlineApiService->getLegalPositionId($document->first()['cause_num']);
-            // get conclusion
-            $conclusion = $this->zakonOnlineApiService->getConclusion($legalPosition->first()['id']);
-        }
-
-        return response()->json(['conclusion' => $conclusion]);
-    }
+//    /**
+//     * @param ConclusionRequest $request
+//     * @return JsonResponse
+//     */
+//    public function GetConclusion(ConclusionRequest $request): JsonResponse
+//    {
+//        $document = $this->zakonOnlineApiService->getAppropriateDocument($request->validated());
+//
+//        if ($document->isEmpty()) {
+//            $conclusion = '';
+//        } else {
+//            // get legal position
+//            $legalPosition = $this->zakonOnlineApiService->getLegalPositionId($document->first()['cause_num']);
+//            // get conclusion
+//            $conclusion = $this->zakonOnlineApiService->getConclusion($legalPosition->first()['id']);
+//        }
+//
+//        return response()->json(['conclusion' => $conclusion]);
+//    }
 }
